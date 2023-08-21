@@ -1,0 +1,771 @@
+/* global reset */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* giving smoothe scrolling */
+html{
+    scroll-behavior: smooth;
+}
+
+/* body css */
+body{
+    background-color: #222831;
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: sans-serif;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+/* the moving background css */
+.particles-js-canvas-el{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: -1;
+}
+
+/* scroller css */
+::-webkit-scrollbar {
+    width: 7px;
+}
+
+::-webkit-scrollbar-track {
+    background: #393E46;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #00ADB5;
+    border-radius: 30px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #00acb585;
+}
+
+
+/* the hamburger div that surrounding the button */
+.ham-div{
+    position: absolute;
+    top: 30px;
+    left: 35px;
+    z-index: 1;
+}
+
+/* the 3 divs the make the structure of the buttton */
+.ham-line{
+    width: 33px;
+    height: 5.5px;
+    background-color: #00ADB5;
+}
+
+/* the actuall hamburger button with the click event */
+.ham-button{
+    background: none;
+	color: inherit;
+	border: none;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+    padding: 13px;
+}
+@media (max-width:425px) {
+    .ham-button{
+        padding: 8px;
+    }
+}
+
+/* making the button a little dim */
+.ham-button:hover{
+    opacity: 0.6;
+}
+
+/* the div surrounding the icons */
+.icon-div{
+    display: flex;
+    flex-direction: row;
+    gap: 60px;
+    margin: 30px 40px 30px 40px;
+}
+@media (max-width:680px) {
+    .icon-div{
+        flex-direction: column;
+        gap: 7px;
+        margin: 10px;
+    }
+}
+
+/* the a element with the i and span elements */
+.icon-anchor{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    color: #00ADB5;
+    text-decoration: none;
+    font-size: 0.75rem;
+    font-weight: bold;
+}
+@media (max-width:680px) {
+    .icon-anchor{
+        font-size: 0.65rem;
+    }
+}
+
+/* changing the color while hovering */
+.icon-anchor:hover{
+    opacity: 0.6;
+}
+
+/* the icons actuall text */
+.icon-span{
+    text-decoration-line:underline ;
+    text-decoration-style:dashed ;
+    text-underline-offset:3px ;
+}
+
+/* the nav element with white background */
+.nav-bar{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+}
+
+/* animetion for opening the navbar */
+.open-anim{
+    animation: open-anim 0.8s forwards;
+}
+@keyframes open-anim {
+    0%{
+        transform: translateX(-100%);
+    }
+    100%{
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* animetion for closing the navbar */
+.close-anim{
+    animation: close-anim 2.5s forwards;
+}
+@keyframes close-anim {
+    0%{
+        transform: translateX(0);
+        opacity: 1;
+    }
+    100%{
+        transform: translateX(-300%);
+        opacity: 0;
+    }
+}
+
+.x-top{
+    transform: rotate(45deg) translateY(13px);
+    transition: transform 0.3s;
+}
+
+.x-bottom{
+    transition: transform 0.3s;
+    transform: rotate(-45deg) translateY(-13px);
+}
+
+.dissapear{
+    opacity: 0;
+    transition: transform 1s;
+
+}
+
+
+
+/* ------------------------------------------------------------------------------ */
+/* CSS for hero section */
+.hero-section{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 100px 0 0 0;
+    gap: 70px;
+}
+
+.hero-h1{
+    font-size: clamp(2rem, 10vw, 6.5rem);
+    font-weight: 600;
+    line-height: 0.8;
+    color: #EEEEEE;
+}
+
+.hero-h3{
+    color: #EEEEEE;
+    line-height: 50px;
+    text-transform: uppercase;
+}
+
+@media (max-width: 768px) {
+    .hero-h3{
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width:425px) {
+    .hero-h3{
+        font-size: 0.7rem;
+        line-height: 1.5;
+    }
+}
+
+@media (max-width:375px) {
+    .hero-h3{
+        font-size: 0.65rem;
+    }
+}
+
+.hero-img{
+    width: 500px;
+    opacity: 0.8;
+    filter:drop-shadow(2px 2px 10px) grayscale(50%);
+}
+
+@media (max-width:768px) {
+    .hero-img{
+        width: 250px;
+    }
+}
+@media (max-width:425px) {
+    .hero-img{
+        width: 150px;
+    }
+}
+@media (max-width:320px) {
+    .hero-img{
+        width: 100px;
+    }
+}
+
+
+
+/* ------------------------------------------------------------------------------ */
+/* CSS for about me section */
+
+/* making the section separete from the hero section */
+.about-me-section{
+    margin-top: 150px;
+}
+
+/* css for the div */
+.about-me-div{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* h2 css */
+.about-me-h2{
+    background: url(../images/down\ arrow.png) no-repeat center bottom;
+    letter-spacing: 4px;
+    padding-bottom: 30px;
+    font-weight: bold;
+    font-size: 1rem;
+    margin: 40px 0;
+    color: #EEEEEE;
+}
+
+/* p css */
+.about-me-p{
+    min-width: 5rem;
+    max-width: 50rem;
+    color: #EEEEEE;
+    text-align: center;
+    font-size: 1.2rem;
+    line-height: 2;
+    font-weight: 500;
+    word-spacing: 1px;
+    padding: 5px;
+}
+
+@media (max-width:768px) {
+    .about-me-p{
+        font-size: 0.8rem;
+    }
+}
+
+
+/* ------------------------------------------------------------------------------ */
+/* CSS for skills section */
+
+/* skill section css */
+
+.skills-section{
+    margin-top: 150px;
+}
+
+.skills-h2{
+    text-align: center;
+    background: url(../images/down\ arrow.png) no-repeat center bottom;
+    letter-spacing: 4px;
+    padding-bottom: 30px;
+    font-weight: bold;
+    font-size: 1rem;
+    margin: 40px 0;
+    color: #EEEEEE;
+}
+
+.skills-icons{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    font-size: 3.5rem;
+    margin: 40px 0;
+}
+@media (max-width:685px) {
+    .skills-icons{
+        font-size: 2.5rem;
+        gap: 25px;
+    }
+}
+@media (max-width:425px) {
+    .skills-icons{
+        font-size: 2rem;
+        gap: 15px;
+    }
+}
+
+.fa-brands, .fa-solid, .api-icon, .oop-icon{
+    filter: drop-shadow(2px 2px 5px) brightness(120%) contrast(100%);
+    color: #00ADB5;
+}
+
+.fa-html5:hover{
+    color: red;
+}
+.fa-css3-alt:hover{
+    color: blue;
+}
+.fa-square-js:hover{
+    color: yellow;
+}
+.fa-js:hover{
+    color: yellow;
+}
+.fa-react:hover{
+    color: cyan;
+}
+.fa-bootstrap:hover{
+    color: rgb(0, 0, 117);
+}
+.fa-sass:hover{
+    color: rgb(255, 48, 127);
+}
+.fa-wordpress:hover{
+    color: rgb(48, 255, 58);
+}
+
+.fa-check{
+    margin-right: 10px;
+}
+
+.flip {
+    position: relative;
+}
+.flip > .front,
+.flip > .back {
+    display: block;
+    transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition-duration: 0.5s;
+    transition-property: transform, opacity;
+}
+.flip > .front {
+    transform: rotateY(0deg);
+}
+.flip > .back {
+    position: absolute;
+    opacity: 0;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    transform: rotateY(-180deg);
+    text-align: center;
+}
+.flip:hover > .front {
+    transform: rotateY(180deg);
+}
+.flip:hover > .back {
+    opacity: 1;
+    transform: rotateY(0deg);
+}
+.flip.flip-vertical > .back {
+    transform: rotateX(-180deg);
+}
+.flip.flip-vertical:hover > .front {
+    transform: rotateX(180deg);
+}
+.flip.flip-vertical:hover > .back {
+    transform: rotateX(0deg);
+}
+
+.flip {
+    position: relative;
+    display: inline-block;
+    margin-right: 2px;
+    margin-bottom: 1em;
+    width: 400px;
+}
+
+@media (max-width: 768px) {
+    .flip{
+        width: 300px;
+    }
+}
+.flip > .front,
+.flip > .back {
+    display: block;
+    color: white;
+    width: inherit;
+    background-size: cover !important;
+    background-position: center !important;
+    height: 350px;
+    padding: 1em 2em;
+    background: #313131;
+    border-radius: 10px;
+}
+.flip > .front p,
+.flip > .back p {
+    font-size: 0.9125rem;
+    text-align: center;
+    line-height: 160%;
+    color: #999;
+}
+
+.text-shadow {
+    text-shadow: 1px 1px rgba(0, 0, 0, 0.04), 2px 2px rgba(0, 0, 0, 0.04), 3px 3px rgba(0, 0, 0, 0.04), 4px 4px rgba(0, 0, 0, 0.04), 0.125rem 0.125rem rgba(0, 0, 0, 0.04), 6px 6px rgba(0, 0, 0, 0.04), 7px 7px rgba(0, 0, 0, 0.04), 8px 8px rgba(0, 0, 0, 0.04), 9px 9px rgba(0, 0, 0, 0.04), 0.3125rem 0.3125rem rgba(0, 0, 0, 0.04), 11px 11px rgba(0, 0, 0, 0.04), 12px 12px rgba(0, 0, 0, 0.04), 13px 13px rgba(0, 0, 0, 0.04), 14px 14px rgba(0, 0, 0, 0.04), 0.625rem 0.625rem rgba(0, 0, 0, 0.04), 16px 16px rgba(0, 0, 0, 0.04), 17px 17px rgba(0, 0, 0, 0.04), 18px 18px rgba(0, 0, 0, 0.04), 19px 19px rgba(0, 0, 0, 0.04), 1.25rem 1.25rem rgba(0, 0, 0, 0.04);
+}
+
+.flip-flex{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+
+
+/* ------------------------------------------------------------------------------ */
+/* CSS for projects section */
+
+.projects-section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 150px;
+}
+
+.projects-h2{
+    text-align: center;
+    background: url(../images/down\ arrow.png) no-repeat center bottom;
+    letter-spacing: 6px;
+    padding-bottom: 30px;
+    font-weight: bold;
+    line-height: 2;
+    font-size: 1rem;
+    margin: 40px 0;
+    color: #EEEEEE;
+}
+
+.projects-grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 350px 350px;
+    gap: 40px;
+    align-items: center;
+    justify-items: center;
+    margin: 20px;
+}
+
+@media screen and (max-width: 1024px) {
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+}  
+
+/* button */
+.button-89 {
+    --b: 3px;   /* border thickness */
+    --s: .45em; /* size of the corner */
+    --color: #00ADB5;
+
+    padding: calc(.5em + var(--s)) calc(.9em + var(--s));
+    color: var(--color);
+    --_p: var(--s);
+    background:
+    conic-gradient(from 90deg at var(--b) var(--b),#0000 90deg,var(--color) 0)
+    var(--_p) var(--_p)/calc(100% - var(--b) - 2*var(--_p)) calc(100% - var(--b) - 2*var(--_p));
+    transition: .3s linear, color 0s, background-color 0s;
+    outline: var(--b) solid #0000;
+    outline-offset: .6em;
+    font-size: 16px;
+
+    border: 0;
+
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+.button-89:hover,
+.button-89:focus-visible{
+    --_p: 0px;
+    outline-color: var(--color);
+    outline-offset: .05em;
+}
+
+.button-89:active {
+    background: var(--color);
+    color: #fff;
+}
+
+.button-flex{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+.button-flex > button > a{
+    color: #EEEEEE;
+    text-decoration: none;
+}
+.icons-flex{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 1.8rem;
+    margin-top: 15px;
+}
+.api-icon, .oop-icon{
+    width: 25.2px;
+    height: 28.8px;
+}
+
+
+/* ------------------------------------------------------------------------------ */
+/* CSS for contect section */
+.contact-section{
+    margin-top: 150px;
+}
+
+.container {
+	max-width:400px;
+	width:100%;
+	margin:0 auto;
+	position:relative;
+}
+
+#contact input[type="text"], #contact input[type="email"], #contact input[type="tel"], #contact input[type="url"], #contact textarea, #contact button[type="submit"] { font:400 12px/16px "Open Sans", Helvetica, Arial, sans-serif; }
+
+#contact {
+	background:#393E46;
+	padding:25px;
+	margin:50px 0;
+}
+
+#contact h3 {
+	color: #EEEEEE;
+	display: block;
+	font-size: 30px;
+	font-weight: 400;
+}
+
+#contact h4 {
+	margin:5px 0 15px;
+	display:block;
+	font-size:13px;
+    color: #EEEEEE;
+}
+
+fieldset {
+	border: medium none !important;
+	margin: 0 0 10px;
+	min-width: 100%;
+	padding: 0;
+	width: 100%;
+}
+
+#contact input[type="text"], #contact input[type="email"], #contact input[type="tel"], #contact input[type="url"], #contact textarea {
+	width:100%;
+	border:1px solid #00ADB5;
+	background:#EEEEEE;
+	margin:0 0 5px;
+	padding:10px;
+}
+
+#contact input[type="text"]:hover, #contact input[type="email"]:hover, #contact input[type="tel"]:hover, #contact input[type="url"]:hover, #contact textarea:hover {
+	-webkit-transition:border-color 0.3s ease-in-out;
+	-moz-transition:border-color 0.3s ease-in-out;
+	transition:border-color 0.3s ease-in-out;
+	border:1px solid #00ADB5;
+}
+
+#contact textarea {
+	height:100px;
+	max-width:100%;
+    resize:none;
+}
+
+#contact button[type="submit"] {
+	cursor:pointer;
+	width:100%;
+	border:none;
+	background:#00ADB5;
+	color:#EEEEEE;
+	margin:0 0 5px;
+	padding:10px;
+	font-size:15px;
+}
+
+#contact button[type="submit"]:hover {
+	background:#00ADB5;
+	-webkit-transition:background 0.3s ease-in-out;
+	-moz-transition:background 0.3s ease-in-out;
+	transition:background-color 0.3s ease-in-out;
+}
+
+#contact button[type="submit"]:active { box-shadow:inset 0 1px 3px rgba(0, 0, 0, 0.5); }
+
+#contact input:focus, #contact textarea:focus {
+	outline:0;
+	border:1px solid #222831;
+}
+::-webkit-input-placeholder {
+    color:#222831;
+}
+:-moz-placeholder {
+    color:#222831;
+}
+::-moz-placeholder {
+    color:#222831;
+}
+:-ms-input-placeholder {
+    color:#222831;
+}
+
+
+
+/* ------------------------------------------------------------------------------ */
+/* CSS for footer */
+
+.footer-container-div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.footer-line{
+    width: 90%;
+    height: 2px;
+    margin-top: 70px;
+    background-color: #00ADB5;
+}
+
+.footer-info-p{
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin: 20px;
+    color: #EEEEEE;
+}
+@media (max-width:425px) {
+    .footer-info-p{
+        font-size: 1rem;
+    }
+}
+@media (max-width:325px) {
+    .footer-info-p{
+        font-size: 0.8rem;
+    }
+}
+
+.footer-hr{
+    width: 100px;
+    border-top: 2px solid #00ADB5;
+}
+
+.footer-icons-div{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    font-size: 2.3rem;
+    margin: 20px;
+    margin-bottom: 70px;
+}
+@media (max-width:425px) {
+    .footer-icons-div{
+        font-size: 1.5rem;
+    }
+}
+
+.fa-facebook:hover{
+    color:#0a48cc ;
+    cursor: pointer;
+
+}
+
+.fa-linkedin:hover{
+    color:#0072b1 ;
+    cursor: pointer;
+
+}
+
+.fa-github:hover{
+    color:#171515 ;
+    cursor: pointer;
+
+}
+
+.fa-whatsapp:hover{
+    color:#03ac2d ;
+    cursor: pointer;
+
+}
+
+.fa-envelope:hover{
+    color:red ;
+    cursor: pointer;
+
+}
+
+/* pre loader */
+.pre-loader{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1031;
+}

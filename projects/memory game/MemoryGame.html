@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Game</title>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fuzzy+Bubbles:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./MemoryGame.css">
+</head>
+
+<body>
+    <div class="bigContainer">
+        <h1 class="mainHeading">Memory Game</h1>
+        <p class="timer">Timer: <b class="timerElem">00:00</b></p>
+        <div class="infoTable">
+            <table>
+                <tr>
+                    <th class="toRemove"></th>
+                    <th class="tablePlayer1">player 1</th>
+                    <th class="tablePlayer2">player 2</th>
+                </tr>
+                <tr>
+                    <th>correct cards</th>
+                    <th class="tablePlayer1Corr">0</th>
+                    <th class="tablePlayer2Corr">0</th>
+                </tr>
+                <tr>
+                    <th>games won</th>
+                    <th class="tablePlayer1Win">0</th>
+                    <th class="tablePlayer2Win">0</th>
+                </tr>
+            </table>
+        </div>
+        <div class="bigFrame">
+            <div class="player">
+                <p class="player1 playing">player 1</p>
+            </div>
+            <div class="smallFrame">
+                <div class="board"></div>
+            </div>
+            <div class="player">
+                <p class="player2">player 2</p>
+            </div>
+        </div>
+        <div class="popupWrapper">
+            <div class="popup">
+                <div class="content">
+                    <div class="container">
+                        <h1 class="title">Pick Stuff</h1>
+                        <form class="form" action="submit.php" method="POST" onsubmit="handleSubmit(event)">
+                            <div class="input-group">
+                                <label for="player1">Player 1 Name:</label>
+                                <input type="text" id="player1" name="player1" required>
+                            </div>
+                            <div class="input-group">
+                                <label for="player2">Player 2 Name:</label>
+                                <input type="text" id="player2" name="player2" required>
+                            </div>
+                            <div class="input-group">
+                                <label for="card-option">Number of Cards:</label>
+                                <select id="card-option" name="cardOption" required>
+                                    <option value="">Select an option</option>
+                                    <option value="5">10 Cards</option>
+                                    <option value="10">20 Cards</option>
+                                    <option value="15">30 Cards</option>
+                                </select>
+                            </div>
+                            <div class="input-group">
+                                <input type="submit" class="submit" value="Start Playing">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../../projects/memory game/Memory Game Java Script/mainScript.js"></script>
+    <script src="../../projects/memory game/Memory Game Java Script/createBoard.js"></script>
+    <script src="../../projects/memory game/Memory Game Java Script/checkClicks.js"></script>
+    <script src="../../projects/memory game/Memory Game Java Script/isComplete.js"></script>
+    <script src="../../projects/memory game/Memory Game Java Script/timer.js"></script>
+    <script src="../../projects/memory game/Memory Game Java Script/tryWinName.js"></script>
+    <script src="../../projects/memory game/Memory Game Java Script/popUp.js"></script>
+    <script src="../../projects/memory game/Memory Game Java Script/endGame.js"></script>
+</body>
+
+</html>

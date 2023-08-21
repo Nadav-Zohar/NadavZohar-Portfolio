@@ -1,0 +1,269 @@
+body{
+    background: #fff url("../../projects/memory game/MemoryGame Images/grassGreen.jpg") center center/cover no-repeat;
+    font-family: 'Fuzzy Bubbles', cursive;
+    font-weight: bold;
+
+}   
+html {
+    min-height: 100%;
+}
+.bigContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.mainHeading{
+    text-align: center;
+    font-size: 1.7rem;
+    color: white;
+}
+.bigFrame{
+    min-width: 90%;
+    background-color: #6bda6bab;
+    border-radius: 15px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    
+}
+.player{
+    font-size: 2rem;
+    color: #FF7800;
+    font-weight: bold;
+    margin: 20px;
+    border-radius: 15px;
+}
+.player1{
+    text-align: center;
+}
+.player2{
+    text-align: center;
+}
+.board {
+    display: inline-grid;
+    overflow: hidden;
+    background-color: #e4e4e4;
+    gap: 6px;
+    padding: 6px;
+    border-radius: 12px;
+    direction: ltr;
+}
+.board div {
+    width: 65px;
+    height: 65px;
+    background-color: #3bbed5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 35px;
+    font-weight: bold;
+    color: white;
+    border-radius: 12px;
+    transition: 0.3s;
+    box-shadow: inset 0px 0px 8px black;
+}
+.board div.showing {
+    background: #e26000;
+    transform: matrix3d(1, 0, 4, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1);
+}
+.board div span {
+    display: none;
+    pointer-events: none;
+}
+.board div.hidden{
+    opacity: 0;
+    visibility: hidden;
+}
+.board div.showing span {
+    display: initial;
+}
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 10px 0;
+} 
+th, td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: center;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+.timer{
+    font-size: 2rem;
+    color: white;
+    margin: 15px;
+}
+.smallFrame{
+    margin: 10px;
+}
+.toRemove{
+    visibility: hidden;
+    border-top: none;
+    border-left: none;
+}
+.playing{
+    animation: myAnim 1.5s ease 0s 1 normal forwards;
+    transform-origin: center;
+    text-shadow: 0px 0px 10px #ffffff;
+}
+@keyframes myAnim {
+	0%,
+	100% {
+		transform: translateX(0%);
+		transform-origin: 50% 50%;
+	}
+
+	15% {
+		transform: translateX(-30px) rotate(-6deg);
+	}
+
+	30% {
+		transform: translateX(15px) rotate(6deg);
+	}
+
+	45% {
+		transform: translateX(-15px) rotate(-3.6deg);
+	}
+
+	60% {
+		transform: translateX(9px) rotate(2.4deg);
+	}
+
+	75% {
+		transform: translateX(-6px) rotate(-1.2deg);
+	}
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(2);
+    }
+}
+.popupWrapper{
+    background-color: rgba(0,0,0,.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+}
+.popup{
+    text-align: center;
+    width: 300px;
+    padding: 20px;
+    margin: 10% auto;
+    background-color: #fff;
+    position: relative;
+    border-radius: 15px;
+}
+input[type="submit"]:hover {
+    background-color: #45a049;
+}
+input[type="submit"] {
+    padding: 8px 16px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+input[type="text"], select {
+width: 100%;
+padding: 8px;
+border-radius: 4px;
+border: 1px solid #ccc;
+}
+.label {
+    font-weight: bold;
+}
+.input-group {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    align-items: center;
+}
+.container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.title {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.form {
+    display: grid;
+    grid-gap: 10px;
+}
+.endGameMessage{
+    background-color: rgba(0,0,0,.5);
+    position: fixed;
+    color: #ffffff;
+    font-size: 3rem;
+    display: flex;
+    top: 0;
+    flex-direction: column;
+    gap: 10px;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.button-3 {
+    appearance: none;
+    background-color: #2ea44f;
+    border: 1px solid rgba(27, 31, 35, .15);
+    border-radius: 6px;
+    box-shadow: rgba(27, 31, 35, .1) 0 1px 0;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-family: -apple-system,system-ui,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji";
+    font-size: 1.5rem;
+    font-weight: 600;
+    line-height: 20px;
+    padding: 6px 16px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+.button-3:focus:not(:focus-visible):not(.focus-visible) {
+    box-shadow: none;
+    outline: none;
+}
+
+.button-3:hover {
+    background-color: #2c974b;
+}
+
+.button-3:focus {
+    box-shadow: rgba(46, 164, 79, .4) 0 0 0 3px;
+    outline: none;
+}
+
+.button-3:disabled {
+    background-color: #94d3a2;
+    border-color: rgba(27, 31, 35, .1);
+    color: rgba(255, 255, 255, .8);
+    cursor: default;
+}
+
+.button-3:active {
+    background-color: #298e46;
+    box-shadow: rgba(20, 70, 32, .2) 0 1px 0 inset;
+}
